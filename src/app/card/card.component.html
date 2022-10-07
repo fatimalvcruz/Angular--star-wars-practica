@@ -1,0 +1,41 @@
+
+<div class="container">
+   
+
+    
+    <app-cabecera></app-cabecera>
+    <div class="manejo">
+        <div *ngIf="error" class="error"> {{mensaje}}</div>
+   
+        <div class="loader" *ngIf="cargando"></div>
+    </div> 
+
+
+    <div class="row" >
+        <div class="col" *ngFor="let pelicula of peliculas" >
+            <div class="card">
+            
+                <div class="card-peli" >
+                    <div class="card-peli-body"  > 
+                        <h2 class="title">{{pelicula.title}}  {{pelicula.episode_id}}</h2>
+                        <div class="imagen">
+                            <div >
+                                <img src="{{'assets/'+pelicula.episode_id+'.jpg'}}" alt=""> 
+                            </div>
+                                
+                        </div>
+                        <p>{{pelicula.opening_crawl}}</p>
+                    </div>
+
+                    <button  class="boton" [routerLink] = "['/actores']">View</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+                          
+
+
+</div> 

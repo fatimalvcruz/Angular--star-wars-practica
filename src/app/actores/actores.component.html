@@ -1,0 +1,22 @@
+<app-cabecera></app-cabecera>
+
+<div class="contenMas">
+    
+<div class="manejo">
+    <div *ngIf="error" class="error"> {{mensaje}}</div>
+    <div class="loader" *ngIf="cargando"></div>
+</div> 
+
+
+
+<div class="contenedor">
+    <div >
+        <h2>{{peliculasActores}}</h2>
+        <ul >
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+
+</div>

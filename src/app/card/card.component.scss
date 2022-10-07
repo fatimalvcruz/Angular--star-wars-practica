@@ -1,0 +1,113 @@
+
+
+
+    .container{
+        h3{
+            background-color: palegreen;
+            cursor: pointer;
+        }
+
+
+        .manejo{
+            margin: 0 auto;
+            padding-top: 50px;
+            .error{
+                justify-content: center;
+                color: yellow;
+                font-size: 1.8em;
+                margin: 0 auto;
+                font-weight: bold;
+                display: flex;
+                
+            }
+          
+            .loader{
+                margin: 0 auto;
+                border: 16px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 16px solid yellow;
+                width: 120px;
+                height: 120px;
+                animation: spin 2s linear infinite;
+               
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+              }
+            
+           
+          
+
+        }
+    
+        .row{
+            width: 50%;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            
+
+           
+
+            
+         
+            .col{
+       
+                width: 48%;
+                 margin-right: 10px;
+    
+                .card{
+                    margin-bottom: 10px;
+                    background-color: white;
+               
+                    .card-peli{
+                        padding: 31px 5px 50px 35px;
+                      
+    
+                        .card-peli-body{
+                            
+                           padding-right: 15px;
+                           margin-bottom: 15px;
+                          
+                            h2{
+                                margin-bottom: 15px;
+                                font-weight: bold;
+                            
+                    
+                            }
+                            .imagen{
+                                width: 37%;
+                                float: left;
+                               margin-right: 80px;
+                                
+                            }
+                           
+                        }
+                     
+                        .boton{
+                            margin-bottom: 30px;
+                            width: 90%;
+                            border-radius: 20px;
+                            border-color:green  ;
+                            height: 44px;
+                            background-color: white;
+                            cursor: pointer;
+                        
+                           
+
+                        }
+                        
+                
+                      
+                    }
+    
+                }
+
+            }
+        }
+        
+            
+        
+        
+    }
