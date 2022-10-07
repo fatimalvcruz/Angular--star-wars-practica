@@ -13,7 +13,7 @@ import { DataServiceService } from './data-service.service';
 
 const rutas:Routes = [
   {path: '', component: CardComponent},
-  {path: 'actores', component: ActoresComponent},
+  {path: 'actores/:id', component: ActoresComponent},
 
 ]
 

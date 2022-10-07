@@ -12,7 +12,7 @@ export class DataServiceService {
 
   url:string = 'https://swapi.dev/api';
   filmEndpoint:string = '/films/';
-  charactersEndpoint:string = '/films/';
+
 
 
   constructor(private http: HttpClient) { 
@@ -27,8 +27,15 @@ export class DataServiceService {
     getPelis():any{
       return this.http.get(`${this.url}${this.filmEndpoint}`);
 
-      
     }
+
+    getActors(charactersEndpoint:string):any{
+      return this.http.get(charactersEndpoint);
+    }
+
+
+ 
+ 
 
 
 

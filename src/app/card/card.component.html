@@ -10,6 +10,8 @@
         <div class="loader" *ngIf="cargando"></div>
     </div> 
 
+    <div>{{carteles.id}}</div>
+
 
     <div class="row" >
         <div class="col" *ngFor="let pelicula of peliculas" >
@@ -27,7 +29,7 @@
                         <p>{{pelicula.opening_crawl}}</p>
                     </div>
 
-                    <button  class="boton" [routerLink] = "['/actores']">View</button>
+                    <button  class="boton" [routerLink] = "['/actores', pelicula.episode_id]">View</button>
                 </div>
 
             </div>

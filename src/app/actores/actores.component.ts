@@ -1,6 +1,7 @@
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { DataServiceService } from '../data-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -10,34 +11,49 @@ import { DataServiceService } from '../data-service.service';
 })
 export class ActoresComponent implements OnInit {
 
-  @Input() peliculasActores: any;
-
-
-  peliculas: any;
+ 
+  indice: number;
+  titulo: string;
+  actores: any [] = [];
+  pelicula: any;
   error: boolean = false;
   mensaje: string = "Hay un error en la carga";
-  asyncResult: any;
   cargando: boolean;
 
-  constructor(private miServicio: DataServiceService) { 
+  constructor(private miServicio: DataServiceService, private route: ActivatedRoute) { 
 
   }
 
   async ngOnInit() {
     this.cargando = true;
-    this.asyncResult = await this.miServicio.getPelis().subscribe({
+    this.indice=this.route.snapshot.params['id'];
+    await this.miServicio.getPelis().subscribe({
       next:(respuesta: any) => {
-        this.peliculas = respuesta.results.filter((film:any) => film.director == "George Lucas");
-        this.peliculas.sort(function(a:any ,b:any){
-        return a.episode_id - b.episode_id
-      });this.cargando = false;
+        this.pelicula = respuesta.results.find((film:any) => film.episode_id == this.indice); 
+        this.cargando = false;
+
+        
+        this.pelicula.characters.map(async (el:string) =>{
+          await this.miServicio.getActors(el).subscribe({
+            next:(respuesta: any) => {
+              this.actores.push(respuesta)
+            },
+            error:(respuesta: Response) =>{
+              this.error = true
+            },
+          });
+        });
+
+
+
+
+
       },
       error:(respuesta: Response) =>{
-      this.error = true
+        this.error = true
       },
-      });
+    });
 
- 
     }
    
   }

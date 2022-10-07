@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
 
@@ -18,12 +18,17 @@ export class CardComponent implements OnInit {
   mensaje: string = "Hay un error en la carga";
   carteles: any;
   asyncResult: any;
-  cargando: boolean;
+  cargando: boolean;  
+  
+
+
+
+
  
 
 
  
-  constructor(private http: HttpClient , private miServicio: DataServiceService) { 
+  constructor(private miServicio: DataServiceService) { 
 
      this.carteles = [
        {picture: 'assets/1.jpg', id: 1},
@@ -41,6 +46,8 @@ export class CardComponent implements OnInit {
 
 
   async ngOnInit() {
+
+
     this.cargando = true;
     this.asyncResult = await this.miServicio.getPelis().subscribe({
       next:(respuesta: any) => {
@@ -53,6 +60,9 @@ export class CardComponent implements OnInit {
       this.error = true
       },
       });
+
+
+      console.log()
 
  
     } 
@@ -78,6 +88,8 @@ export class CardComponent implements OnInit {
 
   }
   */
+
+ 
 
 
 

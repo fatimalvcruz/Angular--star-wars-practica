@@ -9,13 +9,23 @@
 
 
 
-<div class="contenedor">
-    <div >
-        <h2>{{peliculasActores}}</h2>
-        <ul >
-            <li></li>
-        </ul>
+<div class="contenedor" *ngIf="! cargando">
+    <h2>Episode {{indice}} List of: {{pelicula.title}}</h2>
+    <div class="nose">
+        <div class="conten-act" *ngFor="let actor of actores"> 
+
+            <ul >
+    
+                <li>{{actor.name}}</li>
+            
+                
+            </ul> 
+        </div>
+
     </div>
+
+
+    
 </div>
 
 
