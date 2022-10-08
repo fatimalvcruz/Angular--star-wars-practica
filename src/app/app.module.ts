@@ -10,6 +10,7 @@ import { ActoresComponent } from './actores/actores.component';
 import { CabeceraComponent } from './cabecera/cabecera.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DataServiceService } from './data-service.service';
+import { DetailsComponent } from './details/details.component';
 
 const rutas:Routes = [
   {path: '', component: CardComponent},
@@ -22,7 +23,8 @@ const rutas:Routes = [
     AppComponent,
     CardComponent,
     ActoresComponent,
-    CabeceraComponent
+    CabeceraComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

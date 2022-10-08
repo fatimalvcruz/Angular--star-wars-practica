@@ -20,6 +20,10 @@ export class ActoresComponent implements OnInit {
   mensaje: string = "Hay un error en la carga";
   cargando: boolean;
 
+
+
+
+
   constructor(private miServicio: DataServiceService, private route: ActivatedRoute) { 
 
   }
@@ -27,35 +31,31 @@ export class ActoresComponent implements OnInit {
   async ngOnInit() {
     this.cargando = true;
     this.indice=this.route.snapshot.params['id'];
+
     await this.miServicio.getPelis().subscribe({
       next:(respuesta: any) => {
         this.pelicula = respuesta.results.find((film:any) => film.episode_id == this.indice); 
         this.cargando = false;
-
-        
         this.pelicula.characters.map(async (el:string) =>{
-          await this.miServicio.getActors(el).subscribe({
-            next:(respuesta: any) => {
-              this.actores.push(respuesta)
+           await this.miServicio.getActors(el).subscribe({
+                next:(respuesta: any) => {
+                 this.actores.push(respuesta);
+                //  return Promise.all( this.pelicula.characters);
             },
-            error:(respuesta: Response) =>{
+              error:(respuesta: Response) =>{
               this.error = true
             },
           });
         });
-
-
-
-
-
       },
-      error:(respuesta: Response) =>{
-        this.error = true
+          error:(respuesta: Response) =>{
+            this.error = true
       },
     });
+
+  
 
     }
    
   }
-
 
