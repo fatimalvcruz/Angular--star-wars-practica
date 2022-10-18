@@ -12,11 +12,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { DataServiceService } from './data-service.service';
 import { DetailsComponent } from './details/details.component';
 
-const rutas:Routes = [
-  {path: '', component: CardComponent},
-  {path: 'actores/:id', component: ActoresComponent},
-
-]
 
 @NgModule({
   declarations: [
@@ -29,7 +24,7 @@ const rutas:Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule, RouterModule.forRoot(rutas)
+    HttpClientModule
    
   ],
   providers: [DataServiceService],

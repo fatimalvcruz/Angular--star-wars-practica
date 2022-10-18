@@ -1,4 +1,5 @@
 .contenedor{
+    min-width: 225px;
     margin: 0 auto;
     background-color: white;
     width: 50%;
@@ -10,14 +11,19 @@
         font-weight: bold;
     }
     .nose{
-        columns: 4;
+        columns: 2;
        
 
             ul{
+                overflow-wrap: break-word;
                 
                 margin: 20px;
+               
                 list-style:inside;
                 padding-bottom: 5px;
+                li{
+                    padding-right:5px ;
+                }
             
             }
         
